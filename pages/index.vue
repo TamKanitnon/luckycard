@@ -33,27 +33,27 @@
 
     <div class="cards">
         <div class="card" v-bind:class="{'move-0': moves[0], 'flipped': flips[0], 'shuffle': shufs[0], 'highlight': highl[0]}" v-on:click="selectCard(0)">
-            <div class="front"><img v-bind:src="images[0]" alt=""></div>
+            <div class="front"><img v-bind:src="images[0].image" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="card" v-bind:class="{'move-1': moves[1], 'flipped': flips[1], 'shuffle': shufs[1], 'highlight': highl[1]}" v-on:click="selectCard(1)">
-            <div class="front"><img v-bind:src="images[1]" alt=""></div>
+            <div class="front"><img v-bind:src="images[1].image" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="card" v-bind:class="{'move-2': moves[2], 'flipped': flips[2], 'shuffle': shufs[2], 'highlight': highl[2]}" v-on:click="selectCard(2)">
-            <div class="front"><img v-bind:src="images[2]" alt=""></div>
+            <div class="front"><img v-bind:src="images[2].image" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="card" v-bind:class="{'move-3': moves[3], 'flipped': flips[3], 'shuffle': shufs[3], 'highlight': highl[3]}" v-on:click="selectCard(3)">
-            <div class="front"><img v-bind:src="images[3]" alt=""></div>
+            <div class="front"><img v-bind:src="images[3].image" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="card" v-bind:class="{'move-4': moves[4], 'flipped': flips[4], 'shuffle': shufs[4], 'highlight': highl[4]}" v-on:click="selectCard(4)">
-            <div class="front"><img v-bind:src="images[4]" alt=""></div>
+            <div class="front"><img v-bind:src="images[4].image" alt=""></div>
             <div class="back"></div>
         </div>
         <div class="card" v-bind:class="{'move-5': moves[5], 'flipped': flips[5], 'shuffle': shufs[5], 'highlight': highl[5]}" v-on:click="selectCard(5)">
-            <div class="front"><img v-bind:src="images[5]" alt=""></div>
+            <div class="front"><img v-bind:src="images[5].image" alt=""></div>
             <div class="back"></div>
         </div>
     </div>
@@ -73,12 +73,30 @@ export default {
             awards: [true, true, true, false, false, false],
 
             images: [
-                'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/watermelon.png?raw=true',
-                'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/grapes.png?raw=true',
-                'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/orange.png?raw=true',
-                'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/lemon.png?raw=true',
-                'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/tomato.png?raw=true',
-                'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/pineapple.png?raw=true',
+                {
+                    image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/watermelon.png?raw=true',
+                    award: '10'
+                },
+                {
+                    image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/grapes.png?raw=true',
+                    award: '100'
+                },
+                {
+                    image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/orange.png?raw=true',
+                    award: '1,000'
+                },
+                {
+                    image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/lemon.png?raw=true',
+                    award: '10,000'
+                },
+                {
+                    image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/tomato.png?raw=true',
+                    award: '100,000'
+                },
+                {
+                    image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/pineapple.png?raw=true',
+                    award: '1,000,000'
+                }
             ]
         }
     },
@@ -146,7 +164,10 @@ export default {
                 this.flips[i] = true;
                 this.highl[i] = true;
                 this.ready = false;
-                setTimeout(() => this.flipped(true), 1500);
+                setTimeout(() => {
+                    this.flipped(true);
+                    this.message = `Congratulations!!! You received award is money ${this.images[i].award} bath`;
+                }, 1500);
             }
         }
     }

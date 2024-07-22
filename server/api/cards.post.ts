@@ -2,12 +2,30 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event);
 
     let cards = [
-        'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/watermelon.png?raw=true',
-        'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/grapes.png?raw=true',
-        'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/orange.png?raw=true',
-        'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/lemon.png?raw=true',
-        'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/tomato.png?raw=true',
-        'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/pineapple.png?raw=true',
+        {
+            image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/watermelon.png?raw=true',
+            award: '10'
+        },
+        {
+            image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/grapes.png?raw=true',
+            award: '100'
+        },
+        {
+            image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/orange.png?raw=true',
+            award: '1,000'
+        },
+        {
+            image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/lemon.png?raw=true',
+            award: '10,000'
+        },
+        {
+            image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/tomato.png?raw=true',
+            award: '100,000'
+        },
+        {
+            image: 'https://github.com/TamKanitnon/portfolios/blob/main/Multimedia/images/pineapple.png?raw=true',
+            award: '1,000,000'
+        }
     ]
 
     let agent = [0, 1, 2, 3, 4, 5];
